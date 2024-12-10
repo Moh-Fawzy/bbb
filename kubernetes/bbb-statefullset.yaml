@@ -37,7 +37,7 @@ spec:
         - "apps-akka"
       containers:  
         - name: bbb-html5-backend
-          image: your_docker_repo_name/bbb-html5:2.4
+          image: alangecker/bbb-html5:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -95,7 +95,7 @@ spec:
                   key: MONGO_URL
           
         - name: bbb-html5-frontend
-          image: your_docker_repo_name/bbb-html5:2.4
+          image: alangecker/bbb-html5:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -157,7 +157,7 @@ spec:
               name: bbb-volume
           
         - name: bbb-web
-          image: your_docker_repo_name/bbb-docker_bbb-web:2.4
+          image: alangecker/bbb-docker_bbb-web:2.4
           imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
@@ -210,7 +210,7 @@ spec:
                   name: bbb-config
                   key: NUMBER_OF_BACKEND_NODEJS_PROCESSES
         - name: bbb-freeswitch
-          image: your_docker_repo_name/bbb-docker_freeswitch:2.4
+          image: alangecker/bbb-docker_freeswitch:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -259,7 +259,7 @@ spec:
             - mountPath: /var/freeswitch/meetings
               name: bbb-volume
         - name: bbb-nginx
-          image: your_docker_repo_name/bbb-docker_nginx:2.3
+          image: alangecker/bbb-docker_nginx:2.3
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /var/bigbluebutton
@@ -272,7 +272,7 @@ spec:
           ports:
             - containerPort: 8080
         - name: etherpad
-          image: your_docker_repo_name/bbb-docker_etherpad:2.4
+          image: alangecker/bbb-docker_etherpad:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: ETHERPAD_API_KEY
@@ -321,7 +321,7 @@ spec:
             - mountPath: /var/kurento
               name: bbb-volume
         - name: bbb-webrtc-sfu  
-          image: your_docker_repo_name/bbb-docker_webrtc-sfu:2.4
+          image: alangecker/bbb-docker_webrtc-sfu:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: CLIENT_HOST
@@ -356,7 +356,7 @@ spec:
           ports:
             - containerPort: 3008
         - name: bbb-fsesl-akka
-          image: your_docker_repo_name/bbb-docker_fsesl-akka:2.3
+          image: alangecker/bbb-docker_fsesl-akka:2.3
           imagePullPolicy: IfNotPresent
           env:
             - name: FSESL_PASSWORD
@@ -365,7 +365,7 @@ spec:
                   name: bbb-config
                   key: FSESL_PASSWORD
         - name: bbb-apps-akka
-          image: your_docker_repo_name/bbb-docker_apps-akka:2.4
+          image: alangecker/bbb-docker_apps-akka:2.4
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -382,16 +382,16 @@ spec:
             - mountPath: /var/freeswitch/meetings
               name: bbb-volume
         - name: bbb-jodconverter
-          image: your_docker_repo_name/bbb-docker_jodconverter:2.3
+          image: alangecker/bbb-docker_jodconverter:2.3
           imagePullPolicy: IfNotPresent
         - name: bbb-periodic
-          image: your_docker_repo_name/bbb-docker_periodic:2.3
+          image: alangecker/bbb-docker_periodic:2.3
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
         # - name: bbb-recordings
-        #   image: your_docker_repo_name/bbb-docker_recordings:2.3
+        #   image: alangecker/bbb-docker_recordings:2.3
         #   imagePullPolicy: IfNotPresent
         #   volumeMounts:
         #     - mountPath: /var/bigbluebutton
@@ -405,7 +405,7 @@ spec:
         #     - mountPath: /tmp
         #       name: recordings-tmpfs1
         - name: https-proxy
-          image: your_docker_repo_name/bbb-docker_https-proxy:2.3
+          image: alangecker/bbb-docker_https-proxy:2.3
           imagePullPolicy: IfNotPresent
           env:
             - name: ALLOWED_DOMAINS

@@ -37,7 +37,7 @@ spec:
         - "apps-akka"
       containers:  
         - name: bbb-html5-backend
-          image: alangecker/bbb-docker-html5
+          image: alangecker/bbb-docker-html5:v2.7.3
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -95,7 +95,7 @@ spec:
                   key: MONGO_URL
           
         - name: bbb-html5-frontend
-          image: alangecker/bbb-docker-html5
+          image: alangecker/bbb-docker-html5:v2.7.3
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -157,7 +157,7 @@ spec:
               name: bbb-volume
           
         - name: bbb-web
-          image: alangecker/bbb-docker-web
+          image: alangecker/bbb-docker-web:v2.7.3
           imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
@@ -210,7 +210,7 @@ spec:
                   name: bbb-config
                   key: NUMBER_OF_BACKEND_NODEJS_PROCESSES
         - name: bbb-freeswitch
-          image: alangecker/bbb-docker-freeswitch
+          image: alangecker/bbb-docker-freeswitch:v2.7.0
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -259,7 +259,7 @@ spec:
             - mountPath: /var/freeswitch/meetings
               name: bbb-volume
         - name: bbb-nginx
-          image: alangecker/bbb-docker-nginx
+          image: alangecker/bbb-docker-nginx:1.23-v5.0.2-v2.7.3
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /var/bigbluebutton
@@ -272,7 +272,7 @@ spec:
           ports:
             - containerPort: 8080
         - name: etherpad
-          image: alangecker/bbb-docker-etherpad
+          image: alangecker/bbb-docker-etherpad:1.9.1
           imagePullPolicy: IfNotPresent
           env:
             - name: ETHERPAD_API_KEY
@@ -321,7 +321,7 @@ spec:
             - mountPath: /var/kurento
               name: bbb-volume
         - name: bbb-webrtc-sfu  
-          image: alangecker/bbb-docker-webrtc-sfu
+          image: alangecker/bbb-docker-webrtc-sfu:v2.12.0
           imagePullPolicy: IfNotPresent
           env:
             - name: CLIENT_HOST
@@ -356,7 +356,7 @@ spec:
           ports:
             - containerPort: 3008
         - name: bbb-fsesl-akka
-          image: alangecker/bbb-docker_fsesl-akka
+          image: alangecker/bbb-docker-fsesl-akka:v2.7.3
           imagePullPolicy: IfNotPresent
           env:
             - name: FSESL_PASSWORD
@@ -365,7 +365,7 @@ spec:
                   name: bbb-config
                   key: FSESL_PASSWORD
         - name: bbb-apps-akka
-          image: alangecker/bbb-docker_apps-akka
+          image: alangecker/bbb-docker-apps-akka:v2.7.3
           imagePullPolicy: IfNotPresent
           env:
             - name: DOMAIN
@@ -382,16 +382,16 @@ spec:
             - mountPath: /var/freeswitch/meetings
               name: bbb-volume
         - name: bbb-jodconverter
-          image: alangecker/bbb-docker_jodconverter
+          image: alangecker/bbb-docker-jodconverter:latest
           imagePullPolicy: IfNotPresent
         - name: bbb-periodic
-          image: alangecker/bbb-docker_periodic
+          image: alangecker/bbb-docker-periodic:v2.7.0
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
         # - name: bbb-recordings
-        #   image: alangecker/bbb-docker_recordings
+        #   image: alangecker/bbb-docker-recordings:v2.7.3
         #   imagePullPolicy: IfNotPresent
         #   volumeMounts:
         #     - mountPath: /var/bigbluebutton
@@ -405,7 +405,8 @@ spec:
         #     - mountPath: /tmp
         #       name: recordings-tmpfs1
         - name: https-proxy
-          image: alangecker/bbb-docker_https-proxy
+          #image: alangecker/bbb-docker_https-proxy
+          image: bulatdavlyatshin/bbb-docker_https-proxy:2.3
           imagePullPolicy: IfNotPresent
           env:
             - name: ALLOWED_DOMAINS
